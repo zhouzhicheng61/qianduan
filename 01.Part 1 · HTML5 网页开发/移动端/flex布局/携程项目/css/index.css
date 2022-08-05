@@ -1,0 +1,29 @@
+/* 初始化样式 */
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft YaHei", STXihei, hei;
+    color: #000;
+    background-color: #f2f2f2;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 特殊样式内容 */
+/* 点击高亮我们需要清除 设置为transparent 完成透明 */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式 */
+input {
+    -webkit-appearance: none;
+    outline: none;
+}
+
+/* 禁用长按页面时的弹出菜单 */
+img,
+a {
+    -webkit-touch-callout: none;
+}

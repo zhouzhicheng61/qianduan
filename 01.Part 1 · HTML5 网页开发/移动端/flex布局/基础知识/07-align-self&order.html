@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            display: flex;
+            width: 800px;
+            height: 800px;
+            background-color: pink;
+            justify-items: center;
+            align-items: flex-start;
+        }
+
+        span {
+            width: 150px;
+            height: 100px;
+            margin-right: 10px;
+            background-color: purple;
+        }
+
+        span:nth-child(2) {
+            align-self: flex-end;
+            order: 2;
+        }
+
+        /* order 默认是0 */
+        span:nth-child(1) {
+            order: 1;
+        }
+
+        span:nth-child(3) {
+            order: -3;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+
+</html>

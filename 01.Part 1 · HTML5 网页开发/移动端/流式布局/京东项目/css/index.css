@@ -1,0 +1,295 @@
+/* 给body的样式进行初始化 */
+body {
+    min-width: 320px;
+    max-width: 540px;
+    margin: 0 auto;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 1.5em;
+    font-family: -apple-system, Helvetica, sans-serif;
+}
+
+/* 特殊样式内容 */
+/* 点击高亮我们需要清除 设置为transparent 完成透明 */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式 */
+input {
+    -webkit-appearance: none;
+    outline: none;
+}
+
+/* 禁用长按页面时的弹出菜单 */
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+/* 顶部提示部分 */
+.top_tips {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background-color: #333;
+    text-align: center;
+    color: #fff;
+}
+
+.top_tips div {
+    float: left;
+}
+
+.top_tips div:nth-child(1) {
+    width: 8%;
+}
+
+.top_tips div:nth-child(1) img {
+    width: 10px;
+    vertical-align: middle;
+}
+
+.top_tips div:nth-child(2) {
+    width: 10%;
+}
+
+.top_tips div:nth-child(2) img {
+    width: 30px;
+    vertical-align: middle;
+}
+
+.top_tips div:nth-child(3) {
+    width: 57%;
+}
+
+.top_tips div:nth-child(4) {
+    width: 25%;
+    background-color: #f63515;
+}
+
+/* 搜索框 */
+.search_box {
+    position: fixed;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    z-index: 20;
+}
+
+.search_box .search_btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 44px;
+}
+
+.search_box .search_btn span {
+    display: block;
+    width: 20px;
+    height: 18px;
+    margin: 14px 0 0 15px;
+    background: url(../images/s-btn.png) no-repeat 0 0;
+    background-size: 20px 18px;
+}
+
+.search_box .search {
+    position: relative;
+    box-sizing: border-box;
+    height: 30px;
+    border-radius: 15px;
+    margin: 7px 50px;
+    background-color: #fff;
+}
+
+.search_box .search span {
+    position: relative;
+    float: left;
+    width: 20px;
+    height: 15px;
+    margin: 8px 8px 0 15px;
+    background: url(../images/logo2.png) no-repeat 0 0;
+    background-size: 20px 15px;
+}
+
+.search_box .search span::after {
+    position: absolute;
+    right: -8px;
+    content: "";
+    width: 1px;
+    height: 15px;
+    background-color: #dddddd;
+}
+
+.search_box .search i {
+    float: left;
+    width: 18px;
+    height: 15px;
+    margin: 8px 0 0 5px;
+    background: url(../images/jd-sprites.png) no-repeat -80px 0;
+    background-size: 200px;
+}
+
+.search_box .search input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 0 20px 0 78px;
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+}
+
+.search_box .login {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 44px;
+    line-height: 44px;
+    text-align: left;
+    color: #fff;
+}
+
+/* 主要内容区域 */
+.content {
+    width: 100%;
+    margin-top: 44px;
+    background-color: #f6f6f6;
+}
+
+/* 轮播图盒子 */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 187px;
+    overflow: hidden;
+}
+
+/* 轮播图背景颜色 */
+.banner .banner-bg {
+    position: absolute;
+    left: -25%;
+    width: 150%;
+    height: 145px;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    background-image: linear-gradient(0deg, #f1503b, #c82519 50%);
+}
+
+/* 轮播图 */
+.banner ul {
+    position: relative;
+    list-style: none;
+    margin: 0;
+}
+
+.banner ul li {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 187px;
+    padding: 44px 3.33% 0;
+}
+
+.banner ul li:nth-child(2) {
+    left: 100%;
+}
+
+.banner ul li:nth-child(3) {
+    left: 200%;
+}
+
+.banner ul li a {
+    display: block;
+}
+
+.banner ul li img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* 优惠活动 */
+.coupon {
+    width: 100%;
+    overflow: hidden;
+}
+
+.coupon a {
+    float: left;
+    width: 33.33%;
+}
+
+.coupon a img {
+    display: block;
+    width: 100%;
+}
+
+/* 导航盒子 */
+nav {
+    position: relative;
+    width: 100%;
+    height: 162px;
+    overflow: hidden;
+}
+
+nav .mall-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+nav .mall-nav:nth-child(2) {
+    left: 100%;
+}
+
+nav .mall-nav a {
+    float: left;
+    width: 20%;
+    text-decoration: none;
+    color: #666666;
+    text-align: center;
+    font-size: 12px;
+}
+
+nav .mall-nav a img {
+    display: block;
+    width: 40px;
+    margin: 10px auto 0;
+}
+
+nav .mall-nav a span {
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 6px;
+}
+
+/* 新人专享盒子 */
+.new {
+    margin: 10px;
+    overflow: hidden;
+}
+
+.new a {
+    float: left;
+    width: 50%;
+}
+
+.new a img {
+    display: block;
+    width: 100%;
+}
