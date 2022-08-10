@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>
+        美女画廊
+    </h2>
+
+    <div id="imagegallery">
+        <a href="images/1.jpg" title="美女A">
+            <img src="images/1-small.jpg" width="100px" alt="美女1" />
+        </a>
+        <a href="images/2.jpg" title="美女B">
+            <img src="images/2-small.jpg" width="100px" alt="美女2" />
+        </a>
+        <a href="images/3.jpg" title="美女C">
+            <img src="images/3-small.jpg" width="100px" alt="美女3" />
+        </a>
+        <a href="images/4.jpg" title="美女D">
+            <img src="images/4-small.jpg" width="100px" alt="美女4" />
+        </a>
+    </div>
+
+    <div style="clear:both"></div>
+
+    <img id="image" src="images/placeholder.png" alt="" width="450px" />
+
+    <p id="des">选择一个图片</p>
+</body>
+
+</html>
+
+<script>
+    var imagegallery = document.getElementById("imagegallery");
+    var links = imagegallery.getElementsByTagName("a");
+    var image = document.getElementById("image");
+    var des = document.getElementById("des");
+    for (var index = 0; index < links.length; index++) {
+        links[index].onclick = function () {
+            image.src = this.href;
+            des.innerText = this.title;
+            return false;
+        }
+    }
+</script>

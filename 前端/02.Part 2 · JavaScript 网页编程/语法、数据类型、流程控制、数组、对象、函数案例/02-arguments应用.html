@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- arguments应用案例 -->
+    <script>
+        function zzc1() {
+            switch (arguments.length) {
+                case 1:
+                    return (arguments[0])
+                    break;
+                case 2:
+                    return (arguments[0] + arguments[1])
+                    break;
+                case 3:
+                    return arguments[0] > arguments[1] ? (arguments[0] + arguments[2]) : (arguments[1] + arguments[2])
+                    break;
+                default:
+                    throw new Error("参数不能超过3个")
+                    break;
+            }
+        }
+        a = zzc1(4, 5, 7, 44)
+        console.log(a)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

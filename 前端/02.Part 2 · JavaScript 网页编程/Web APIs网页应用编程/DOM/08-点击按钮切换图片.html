@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="更改图片" id="btn"><br>
+    <img src="images/a.jpg" alt="美女" class="pic" id="pic">
+</body>
+
+</html>
+<script>
+    var num = 1;
+    var btn = document.getElementById("btn");
+    var pic = document.getElementById("pic");
+    btn.onclick = function () {
+        if (num == 1) {
+            pic.src = "images/b.jpg";
+            num = 2;
+        } else {
+            pic.src = "images/a.jpg";
+            num = 1;
+        }
+    }
+</script>

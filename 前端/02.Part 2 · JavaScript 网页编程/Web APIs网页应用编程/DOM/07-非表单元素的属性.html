@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="http://www.baidu.com" title="跳转到百度页面" id="link">跳转</a>
+    <img src="images/a.jpg" alt="美女" class="pic" id="pic">
+</body>
+
+</html>
+<script>
+    var link = document.getElementById("link");
+    var pic = document.getElementById("pic");
+    console.log(link.href);
+    console.log(link.title);
+    console.log(pic.src);
+    console.log(pic.className);
+    pic.src = "images/b.jpg"
+</script>

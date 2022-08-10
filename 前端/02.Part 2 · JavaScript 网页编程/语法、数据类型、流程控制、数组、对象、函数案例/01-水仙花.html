@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 水仙花案例 -->
+    <script>
+        for (i = 100; i < 1000; i++) {
+            // 百位
+            a = parseInt(i / 100)
+            // 十位
+            b = parseInt(i / 10) - 10 * a
+            // 个位
+            c = i - 100 * a - 10 * b
+            // 找水仙花数：每个数位的三字方和等于它本身
+            if (a * a * a + b * b * b + c * c * c == i) {
+                console.log(i + "是水仙花数")
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

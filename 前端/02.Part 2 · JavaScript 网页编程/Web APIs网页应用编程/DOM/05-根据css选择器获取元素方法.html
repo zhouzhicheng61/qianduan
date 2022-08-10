@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box1">
+        <p>text1 of box1</p>
+        <p class="para">text2 of box1</p>
+        <p class="para">text3 of box1</p>
+        <p>text4 of box1</p>
+    </div>
+    <div id="box2">
+        <p>text1 of box2</p>
+        <p class="para">text2 of box2</p>
+        <p class="para">text3 of box2</p>
+        <p>text4 of box2</p>
+    </div>
+</body>
+
+</html>
+<script>
+    var paras1 = document.querySelectorAll("#box1 .para");
+    console.log(paras1);
+</script>
