@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="commom.js"></script>
+    <style>
+        .box {
+            position: fixed;
+            bottom: 300px;
+            right: 50px;
+            width: 80px;
+            height: 80px;
+            background-color: pink;
+        }
+
+        .erweima {
+            position: absolute;
+            top: 0;
+            left: -150px;
+            width: 150px;
+            height: 150px;
+            background-color: skyblue;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="erweima hide" id="er">
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var box = my$("box");
+    var er = my$("er");
+    box.onmouseover = function () {
+        er.className = er.className.replace("hide", "show");
+    };
+    box.onmouseout = function () {
+        er.className = er.className.replace("show", "hide");
+    };
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="commom.js"></script>
+    <style>
+        .box {
+            width: 300px;
+            margin: 200px auto;
+        }
+
+        .hd {
+            border: 1px solid #999;
+            border-bottom: 0;
+            user-select: none;
+        }
+
+        .hd span {
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: pink;
+        }
+
+        .hd span.current {
+            background-color: skyblue;
+        }
+
+        .bd {
+            border: 1px solid #999;
+            border-top: 0;
+        }
+
+        .bd div {
+            height: 255px;
+            background-color: skyblue;
+            display: none;
+        }
+
+        .bd div.current {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="hd" id="hd">
+            <span class="current">体育</span>
+            <span>娱乐</span>
+            <span>新闻</span>
+            <span>综合</span>
+        </div>
+        <div class="bd" id="bd">
+            <div class="current">体育内容啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+            <div>娱乐内容啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+            <div>新闻内容啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+            <div>综合内容啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var hd = my$("hd");
+    var bd = my$("bd");
+    var hd_childs = hd.getElementsByTagName("span");
+    var bd_childs = bd.getElementsByTagName("div");
+    for (var i = 0; i < hd_childs.length; i++) {
+        // 给子元素添加索引，方便后续对应同索引的div内容调用
+        hd_childs[i].index = i;
+
+        // 标题点击事件监听
+        hd_childs[i].onmouseover = function () {
+            // 标题全都恢复默认
+            for (var j = 0; j < hd_childs.length; j++) {
+                hd_childs[j].className = "";
+            }
+            // 被选中标题更改颜色
+            this.className = "current";
+
+            // 下方内容全部隐藏
+            for (var k = 0; k < hd_childs.length; k++) {
+                bd_childs[k].className = "";
+            }
+
+            // 被选中标签的内容显示
+            bd_childs[this.index].className = "current";
+        };
+
+    }
+</script>
