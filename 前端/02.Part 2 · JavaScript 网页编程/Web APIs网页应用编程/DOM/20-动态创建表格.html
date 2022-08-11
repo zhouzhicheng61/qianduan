@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="commom.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #ccc;
+        }
+
+        th,
+        td {
+            width: 100px;
+            height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>动态创建表格</h1>
+    <table id="wrap" border="1">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+        </tbody>
+    </table>
+</body>
+
+</html>
+<script>
+    var datas = [
+        { name: "zs", subject: "语文", score: 80 },
+        { name: "ls", subject: "数学", score: 87 },
+        { name: "ww", subject: "英语", score: 90 },
+        { name: "lb", subject: "物理", score: 89 },
+        { name: "cc", subject: "生物", score: 100 },
+        { name: "sq", subject: "化学", score: 98 }
+    ];
+    var tb = document.getElementById("tb");
+    for (var i = 0; i < datas.length; i++) {
+        var tr = document.createElement("tr");
+        tb.appendChild(tr);
+        // 成绩对象遍历
+        for (var key in datas[i]) {
+            var td = document.createElement("td");
+            td.innerText = datas[i][key];
+            tr.appendChild(td);
+        }
+        // 删除按钮
+        var dl_td = document.createElement("td");
+        var dl_a = document.createElement("a");
+        tr.appendChild(dl_td);
+        dl_td.appendChild(dl_a);
+        dl_a.innerText = "删除";
+    }
+
+    // 删除事件
+    var del_a = tb.getElementsByTagName("a");
+    for (let index = 0; index < del_a.length; index++) {
+        del_a[index].onclick = function () {
+            var tr = tb.getElementsByTagName("tr");
+            console.log(index, del_a.length)
+            tb.removeChild(tr[index])
+        };
+    }
+</script>

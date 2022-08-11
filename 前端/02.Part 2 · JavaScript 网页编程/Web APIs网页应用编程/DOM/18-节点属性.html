@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">div1</div>
+</body>
+
+</html>
+<script>
+    var box = document.getElementById("box");
+    console.dir(box);
+    var id123 = box.getAttributeNode("id");
+    console.dir(id123);
+    var content123 = box.childNodes;
+    console.dir(content123);
+    content123[0].nodeValue = "嘎嘎阿哥"
+</script>

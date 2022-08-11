@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">123</div>
+    <div id="demo">
+        <p>hahahahhaha</p>
+        <p>hahahahhaha</p>
+        <p>hahahahhaha</p>
+        <div class="inner">
+            <p>inner中的p</p>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var newdiv = document.createElement('div');
+    newdiv.innerHTML = "哈哈哈哈哈这是一个新的div";
+    document.body.appendChild(newdiv);
+    var box = document.getElementById('box');
+    var demo = document.getElementById('demo');
+    document.body.removeChild(box);
+    var child1 = demo.children;
+    console.log(child1);
+</script>
