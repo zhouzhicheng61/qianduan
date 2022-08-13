@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="commom.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .login-header {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .login-header a {
+            display: inline-block;
+        }
+
+        .login {
+            display: none;
+            position: absolute;
+            top: 200px;
+            left: 100px;
+            width: 512px;
+            height: 280px;
+            border: #ebebeb solid 1px;
+            background: #ffffff;
+            box-shadow: 0px 0px 20px #ddd;
+            z-index: 9999;
+        }
+
+        .login-title {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            padding: 10px 0px 0px 0px;
+            font-size: 18px;
+            text-align: center;
+            cursor: move;
+            -moz-user-select: none;
+            /*火狐*/
+            -webkit-user-select: none;
+            /*webkit浏览器*/
+            -ms-user-select: none;
+            /*IE10*/
+            -khtml-user-select: none;
+            /*早期浏览器*/
+            user-select: none;
+        }
+
+        .login-input-content {
+            margin-top: 20px;
+        }
+
+        .login-button {
+            width: 50%;
+            line-height: 40px;
+            border: #ebebeb 1px solid;
+            margin: 30px auto 0px auto;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .login-bg {
+            display: none;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            filter: alpha(opacity=30);
+            -moz-opacity: 0.3;
+            -khtml-opacity: 0.3;
+            opacity: 0.3;
+        }
+
+        .login-button a {
+            display: block;
+        }
+
+        .login-input input.list-input {
+            float: left;
+            width: 350px;
+            height: 35px;
+            line-height: 35px;
+            border: #ebebeb 1px solid;
+            text-indent: 5px;
+        }
+
+        .login-input {
+            margin: 0px 0px 20px 0px;
+            overflow: hidden;
+        }
+
+        .login-input label {
+            float: left;
+            width: 90px;
+            height: 35px;
+            line-height: 35px;
+            padding-right: 10px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .login-title span {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 40px;
+            height: 40px;
+            border: #ebebeb solid 1px;
+            border-radius: 20px;
+            background: #ffffff;
+            font-size: 12px;
+        }
+
+        .login-title span a {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-header"><a id="link" href="javascript:void(0);">点击，弹出登录框</a></div>
+    <!-- 弹出层 -->
+    <div id="login" class="login">
+        <div id="title" class="login-title">登录会员
+            <span><a id="closeBtn" href="javascript:void(0);" class="close-login">关闭</a></span>
+        </div>
+        <div class="login-input-content">
+            <div class="login-input">
+                <label>用户名：</label>
+                <input type="text" placeholder="请输入用户名" name="info[username]" id="username" class="list-input">
+            </div>
+            <div class="login-input">
+                <label>登录密码：</label>
+                <input type="password" placeholder="请输入登录密码" name="info[password]" id="password" class="list-input">
+            </div>
+        </div>
+        <div id="loginBtn" class="login-button"><a href="javascript:void(0);" id="login-button-submit">登录会员</a></div>
+    </div>
+    <!-- 遮盖层 -->
+    <div id="bg" class="login-bg"></div>
+</body>
+
+</html>
+<script>
+    var link = my$("link");
+    var login = my$("login");
+    var title = my$("title");
+    var closeBtn = my$("closeBtn");
+    var bg = my$("bg");
+
+    // 弹出登录框
+    function openLogin() {
+        login.style.display = "block";
+        bg.style.display = "block";
+    }
+    addEvent(link, "click", openLogin);
+
+    // 关闭登录框
+    function closeLogin() {
+        login.style.display = "";
+        bg.style.display = "";
+    }
+    addEvent(closeBtn, "click", closeLogin);
+
+    // 移动登录框
+    title.onmousedown = function (e) {
+        let x = login.offsetLeft - e.pageX;
+        let y = login.offsetTop - e.pageY;
+        title.onmousemove = function (e) {
+            login.style.top = e.pageY + y + "px";
+            login.style.left = e.pageX + x + "px";
+        };
+    };
+    title.onmouseup = function () {
+        title.onmousemove = null;
+    };
+    title.onmouseleave = function () {
+        title.onmousemove = null;
+    };
+
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="commom.js"></script>
+</head>
+
+<body>
+    <ul id="list">
+        <li>1111111111111</li>
+        <li>2222222222222</li>
+        <li>333333333333</li>
+        <li>4444444444</li>
+        <li>555555555</li>
+    </ul>
+
+</body>
+
+</html>
+<script>
+    var list = my$("list");
+    var lis = list.children;
+
+    function targetEvent(e) {
+        for (let index = 0; index < lis.length; index++) {
+            lis[index].style.backgroundColor = "";
+        }
+        e = e || window.evnet;
+        e.target.style.backgroundColor = "pink";
+    }
+
+    addEvent(list, "click", targetEvent)
+</script>

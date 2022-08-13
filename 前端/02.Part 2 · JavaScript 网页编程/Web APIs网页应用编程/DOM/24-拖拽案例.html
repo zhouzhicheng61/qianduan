@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="commom.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 5000px;
+        }
+
+        .nav {
+            height: 30px;
+            background: #036663;
+            border-bottom: 1px solid #369;
+            line-height: 30px;
+            padding-left: 30px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .d-box {
+            width: 400px;
+            height: 300px;
+            border: 5px solid #eee;
+            box-shadow: 2px 2px 2px 2px #666;
+            position: absolute;
+            top: 5%;
+            left: 2%;
+            background-color: white;
+
+            /* 不让文字被选中 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .hd {
+            width: 100%;
+            height: 25px;
+            background-color: #7c9299;
+            border-bottom: 1px solid #369;
+            line-height: 25px;
+            color: white;
+            cursor: move;
+        }
+
+        #box_close {
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a id="register">注册信息</a>
+    </div>
+    <div class="d-box" id="d-box">
+        <div class="hd" id="drop">&nbsp;注册信息（可拖拽）
+            <span id="box_close">【关闭】</span>
+        </div>
+        <div class="bd"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    var register = my$('register');
+    var dBox = my$("d-box");
+    var hd = my$("drop");
+    var box_close = my$("box_close");
+
+    // 打开窗口
+    function boxOpen() {
+        dBox.style.display = "block";
+    }
+    addEvent(register, "click", boxOpen)
+
+    // 关闭窗口
+    function boxClose() {
+        dBox.style.display = "none";
+    }
+    addEvent(box_close, "click", boxClose)
+
+    // 拖动窗口
+    hd.onmousedown = function (e) {
+        let x = dBox.offsetLeft - e.pageX;
+        let y = dBox.offsetTop - e.pageY;
+        hd.onmousemove = function (e) {
+            dBox.style.top = e.pageY + y + "px";
+            dBox.style.left = e.pageX + x + "px";
+        };
+    };
+    hd.onmouseup = function () {
+        hd.onmousemove = null;
+    };
+    hd.onmouseleave = function () {
+        hd.onmousemove = null;
+    };
+</script>
