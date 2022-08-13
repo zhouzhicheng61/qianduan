@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="commom.js"></script>
+    <style>
+        select {
+            width: 200px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <select id="all" multiple="multiple">
+    </select>
+
+    <input type="button" value=">>" id="btn1">
+    <input type="button" value="<<" id="btn2">
+    <input type="button" value=">" id="btn3">
+    <input type="button" value="<" id="btn4">
+
+    <select id="choose" multiple="multiple">
+    </select>
+</body>
+
+</html>
+<script>
+    var all = document.getElementById("all");
+    var choose = document.getElementById("choose");
+
+    var datas = ["苹果", "橘子", "梨", "西瓜", "水蜜桃"]
+    for (let index = 0; index < datas.length; index++) {
+        var option = document.createElement("option");
+        option.innerText = datas[index]
+        all.appendChild(option);
+    }
+
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var btn4 = document.getElementById("btn4");
+    btn1.onclick = function () {
+        let n = all.children.length;
+        for (let index = 0; index < n; index++) {
+            choose.appendChild(all.children[0]);
+        }
+    };
+
+    btn2.onclick = function () {
+        let n = choose.children.length;
+        for (let index = 0; index < n; index++) {
+            all.appendChild(choose.children[0]);
+        }
+    };
+
+    btn3.onclick = function () {
+        let n = all.children.length;
+        let arr = [];
+        for (let index = 0; index < n; index++) {
+            if (all.children[index].selected == true) {
+                arr.push(all.children[index]);
+            }
+        }
+        for (let index = 0; index < arr.length; index++) {
+            choose.appendChild(arr[index]);
+            arr[index].selected = false;
+        }
+    };
+
+    btn4.onclick = function () {
+        let n = choose.children.length;
+        let arr = [];
+        for (let index = 0; index < n; index++) {
+            if (choose.children[index].selected == true) {
+                arr.push(choose.children[index]);
+            }
+        }
+        for (let index = 0; index < arr.length; index++) {
+            all.appendChild(arr[index]);
+            arr[index].selected = false;
+        }
+    };
+
+</script>
