@@ -64,6 +64,34 @@
 </html>
 <script>
     var ul = my$("munit");
-    var ul_left = parseFloat(window.getComputedStyle(ul).left);
+    var start_left = ul.offsetLeft;
+    var end_left = -1470;
+    var count = 0;
+    var maxCount = 5000 / 20;   // 总时间除以时间间隔
+    var step_left = (end_left - start_left) / maxCount;
+    var interval = 20;
+    var timer;
 
+
+    function run() {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            start_left = parseFloat(start_left) + step_left;
+            count++;
+            if (count >= maxCount) {
+                ul.style.left = 0;
+                start_left = 0;
+                count = 0;
+            }
+            ul.style.left = start_left + "px";
+        }, interval);
+    }
+
+    run();
+    ul.onmouseover = function () {
+        clearInterval(timer);
+    };
+    ul.onmouseleave = function () {
+        run();
+    };
 </script>
