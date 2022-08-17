@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        .carousel {
+            position: relative;
+            width: 880px;
+            height: 550px;
+            border: 1px solid #333;
+            margin: 50px auto;
+        }
+
+        .pic li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 880px;
+            height: 550px;
+            display: none;
+        }
+
+        .pic li.current {
+            display: block;
+        }
+
+        .btn a {
+            position: absolute;
+            top: 50%;
+            width: 80px;
+            height: 80px;
+            margin-top: -40px;
+            background-color: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            color: #444;
+            text-align: center;
+            line-height: 80px;
+            font-size: 60px;
+            font-family: "SimSun";
+        }
+
+        .btn .left {
+            left: 10px;
+        }
+
+        .btn .right {
+            right: 10px;
+        }
+
+        .btn a:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .sub {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            width: 200px;
+            height: 40px;
+            margin-left: -100px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .sub li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        .sub li.current {
+            background-color: #0ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel" id="carousel">
+        <ul class="pic" id="pic">
+            <li class="current"><img src="images/lunbo/01.jpg" alt=""></li>
+            <li><img src="images/lunbo/02.jpg" alt=""></li>
+            <li><img src="images/lunbo/03.jpg" alt=""></li>
+            <li><img src="images/lunbo/04.jpg" alt=""></li>
+            <li><img src="images/lunbo/05.jpg" alt=""></li>
+        </ul>
+        <div class="btn" id="btn">
+            <a href="javascript:;" class="left" id="leftbtn">&lt;</a>
+            <a href="javascript:;" class="right" id="rightbtn">&gt;</a>
+        </div>
+        <ol class="sub" id="sub">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <script src="commom.js"></script>
+    <script>
+        var carousel = my$('carousel');
+        var pic = my$("pic");
+        var pic_li = pic.children;
+        var sub = my$("sub");
+        var sub_li = sub.children;
+        var leftbtn = my$("leftbtn");
+        var rightbtn = my$("rightbtn");
+        var index;
+        var timer;
+
+        // 获取当前轮播图索引
+        function getIndex() {
+            for (let i = 0; i < pic_li.length; i++) {
+                if (pic_li[i].className == "current") {
+                    index = i;
+                }
+            }
+        }
+
+        // 重置元素们的className属性
+        function resetLiClassName(eles) {
+            for (let i = 0; i < eles.length; i++) {
+                eles[i].className = "";
+            }
+        }
+
+        // 上一张
+        function turnLeft() {
+            if (index == 0) {
+                index = pic_li.length - 1;
+            } else {
+                index = index - 1;
+            }
+            pic_li[index].className = "current";
+            sub_li[index].className = "current";
+        }
+
+        // 下一张
+        function turnRight() {
+            if (index == pic_li.length - 1) {
+                index = 0;
+            } else {
+                index = index + 1;
+            }
+            pic_li[index].className = "current";
+            sub_li[index].className = "current";
+        }
+
+        // 滚动播放
+        function run() {
+            getIndex();
+            resetLiClassName(pic_li);
+            resetLiClassName(sub_li);
+            turnRight();
+        }
+
+        // 跳转至
+        function turnTo(index) {
+            resetLiClassName(pic_li);
+            resetLiClassName(sub_li);
+            pic_li[index].className = "current";
+            sub_li[index].className = "current";
+        }
+
+        // 上一张按钮点击事件
+        leftbtn.onclick = function () {
+            getIndex();
+            resetLiClassName(pic_li);
+            resetLiClassName(sub_li);
+            turnLeft();
+        };
+
+        // 下一张按钮点击事件
+        rightbtn.onclick = function () {
+            getIndex();
+            resetLiClassName(pic_li);
+            resetLiClassName(sub_li);
+            turnRight();
+        };
+
+        // 选项栏点击事件
+        for (let i = 0; i < sub_li.length; i++) {
+            sub_li[i].onclick = function () {
+                index = i;
+                turnTo(index);
+            };
+        };
+
+        // 调用滚动播放事件
+        timer = setInterval(run, 1000);
+
+        // 暂停轮播事件
+        carousel.onmouseover = function () {
+            clearInterval(timer);
+        };
+
+        // 恢复轮播事件
+        carousel.onmouseout = function () {
+            timer = setTimeout(run, 1000);
+        };
+
+
+    </script>
+</body>
+
+</html>
