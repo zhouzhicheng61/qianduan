@@ -1,15 +1,11 @@
 var stage = document.getElementById("stage");
-var stageWidth = stage.offsetWidth;
-var stageHeight = stage.offsetHeight;
 
 var arr = [];
 function creatBlock(num) {
     for (let index = 0; index < num; index++) {
-        let block = new Block(stage);
-        block.backgroundColor = Tools.getRandomColor();
-        block.x = block.getRandomIntInclusive(stageWidth);
-        block.y = block.getRandomIntInclusive(stageHeight);
+        let block = new Block(stage, { backgroundColor: Tools.getRandomColor() });
         block.render();
+        block.positionRandom();
         arr.push(block);
     }
 }

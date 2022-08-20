@@ -10,8 +10,9 @@
 
 <body>
   <div class="map" id="map"></div>
-  <script src="js/food.js"></script>
   <script src="js/tool.js"></script>
+  <script src="js/food.js"></script>
+  <script src="js/snake.js"></script>
   <script>
     // 先获取对象
     var map = document.getElementById("map");
@@ -25,6 +26,10 @@
       food.render();
       arrFood.push(food);
     }
+    // 初始化蛇
+    var snake = new Snake(map);
+    snake.render();
+    snake.move();
   </script>
 </body>
 

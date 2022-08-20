@@ -23,10 +23,6 @@ Block.prototype.render = function () {
     this.ele.style.top = this.y + "px";
 };
 
-Block.prototype.getRandomIntInclusive = function (max) {
-    return Math.ceil((Tools.getRandomIntInclusive(0, max) / 20) - 1) * 20;
-};
-
 Block.prototype.positionRandom = function () {
     this.x = Math.ceil((Tools.getRandomIntInclusive(0, this.parent.offsetWidth) / 20) - 1) * 20;
     this.y = Math.ceil((Tools.getRandomIntInclusive(0, this.parent.offsetHeight) / 20) - 1) * 20;
