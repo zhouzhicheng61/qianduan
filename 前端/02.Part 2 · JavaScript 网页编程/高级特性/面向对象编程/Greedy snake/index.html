@@ -17,19 +17,19 @@
     // 先获取对象
     var map = document.getElementById("map");
     // 初始化食物，默认数量为3个
-    var arrFood = []; // 食物对象数组，用来存储对象
-    var numFood = 3;  // 食物数量起始值
-    for (let index = 0; index < numFood; index++) {
-      var food = new Food(map);
-      food.x = food.getRandomIntInclusive(food.parent.offsetWidth);
-      food.y = food.getRandomIntInclusive(food.parent.offsetHeight);
-      food.render();
-      arrFood.push(food);
-    }
-    // 初始化蛇
-    var snake = new Snake(map);
-    snake.render();
-    snake.move();
+    // var arrFood = []; // 食物对象数组，用来存储对象
+    // var numFood = 3;  // 食物数量起始值
+    // for (let index = 0; index < numFood; index++) {
+    var food = new Food(map);
+    food.render();
+    food.render();
+    food.render();
+    // arrFood.push(food);
+    // }
+    // // 初始化蛇
+    // var snake = new Snake(map);
+    // snake.render();
+    // snake.move();
   </script>
 </body>
 

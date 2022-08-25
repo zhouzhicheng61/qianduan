@@ -26,13 +26,44 @@ Snake.prototype.render = function () {
     this.ele.style.top = this.y + "px";
 };
 
+var aspect = "right";
+document.onkeydown = function (e) {
+    switch (e.keyCode) {
+        case 37:  // left
+            aspect = "left";
+            break;
+        case 38:  // up
+            aspect = "up";
+            break;
+        case 39:  // right
+            aspect = "right";
+            break;
+        case 40:  // down
+            aspect = "down";
+            break;
+    }
+};
+
 // 运动
 Snake.prototype.move = function () {
     let a1 = this;
     var timmer = setInterval(function () {
-        a1.x += a1.width;
+        switch (aspect) {
+            case "left":
+                a1.x -= a1.width;
+                break;
+            case "up":
+                a1.y -= a1.height;
+                break;
+            case "right":
+                a1.x += a1.width;
+                break;
+            case "down":
+                a1.y += a1.height;
+                break;
+        }
         a1.changePosition();
-    }, 1000);
+    }, 50);
 };
 
 // 修改坐标方法
