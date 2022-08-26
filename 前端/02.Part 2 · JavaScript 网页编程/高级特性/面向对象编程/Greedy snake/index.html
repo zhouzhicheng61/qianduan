@@ -13,17 +13,20 @@
   <script src="js/tool.js"></script>
   <script src="js/food.js"></script>
   <script src="js/snake.js"></script>
+  <script src="js/game.js"></script>
   <script>
     // 先获取对象
     var map = document.getElementById("map");
+    var game = new Game(map);
+    game.start();
     // 初始化食物，默认数量为3个
     // var arrFood = []; // 食物对象数组，用来存储对象
     // var numFood = 3;  // 食物数量起始值
     // for (let index = 0; index < numFood; index++) {
-    var food = new Food(map);
-    food.render();
-    food.render();
-    food.render();
+    // var food = new Food(map);
+    // food.render();
+    // food.render();
+    // food.render();
     // arrFood.push(food);
     // }
     // // 初始化蛇
