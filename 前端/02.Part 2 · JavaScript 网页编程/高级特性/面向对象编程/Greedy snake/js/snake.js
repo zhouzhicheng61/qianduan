@@ -12,8 +12,8 @@
             { x: 3, y: 2, color: "red" },// 蛇头
             { x: 2, y: 2, color: "blue" },
             { x: 1, y: 2, color: "blue" }
-        ]
-        this.direction = "right"
+        ];
+        this.direction = "right";
         this.elements = [];
     }
 
@@ -48,8 +48,7 @@
             this.body[index].y = this.body[index - 1].y;
         }
         // 蛇头运动单独判断
-        var head = this.body[0]
-        console.log(this.direction);
+        var head = this.body[0];
         switch (this.direction) {
             case "right":
                 head.x += 1;
@@ -78,7 +77,7 @@
     Snake.prototype.changePosition = function () {
         this.ele.style.left = this.x + "px";
         this.ele.style.top = this.y + "px";
-    }
+    };
 
     // 利用 window 对象暴露 Snake 函数可以给外部使用
     window.Snake = Snake;

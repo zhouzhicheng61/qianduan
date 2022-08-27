@@ -53,7 +53,7 @@
         this.y = Math.ceil((Tools.getRandomIntInclusive(0, this.parent.offsetHeight) / 20) - 1) * 20;
         e.style.left = this.x + "px";
         e.style.top = this.y + "px";
-    }
+    };
 
     // 利用 window 对象暴露 Food 函数可以给外部使用
     window.Food = Food;
