@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 箭头函数，定义一个函数的返回内容、回调函数
+        const plus = (a, b) => {
+            // console.log("plus invoked");
+            return a + b;
+        };
+        var tt = plus(3, 2);
+        // console.log(tt);
+
+        // 应用:数组内容筛选
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+        const arr1 = arr.filter(function (items) {
+            return items % 2;
+        });
+        console.log(arr1);
+
+        // 化简写法，简化回调函数
+        const arr2 = arr.filter(i => i % 2);
+        console.log(arr2);
+
+        // 特性：箭头函数与this的关系,箭头函数内部的this是从外部查找
+        const person = {
+            name: "zhangsan",
+            saiHi: function () {
+                console.log(`I am ${this.name}`);
+            },
+            sayHi: () => {
+                console.log(`I am ${name}`);
+            }
+        };
+        person.sayHi();
+    </script>
+</body>
+
+</html>

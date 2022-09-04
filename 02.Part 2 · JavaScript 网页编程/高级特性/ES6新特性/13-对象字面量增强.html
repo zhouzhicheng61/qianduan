@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const bar = "bar";
+        const hah = "haha";
+        // 当变量名和值相等时，只书写变量名即可存储key和value
+        const obj = {
+            name: "tom",
+            bar,
+            sayHi() {
+                console.log("Hello!");
+                console.log(this);
+            },
+            // 计算属性名，达到动态的效果
+            [hah]: 123
+        }
+        console.log(obj);
+        obj.sayHi();
+    </script>
+</body>
+
+</html>
