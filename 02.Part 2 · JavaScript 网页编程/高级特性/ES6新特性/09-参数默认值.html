@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function foo(enable = true) {
+            // 下面的方式判断不严谨
+            // enable = enable || true;
+            // 相比而言 也可以使用这样的方法判断是否传参了
+            // enable = enable === undefined ? true : enable;
+            // 更妙的方法也可以是赋默认值，多参数的时候，需要把赋默认值的参数往后拿
+            console.log(enable);
+        }
+    </script>
+</body>
+
+</html>

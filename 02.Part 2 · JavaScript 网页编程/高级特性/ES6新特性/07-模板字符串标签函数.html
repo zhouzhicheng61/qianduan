@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const name = "zhangsan";
+        const gender = true;
+        function myTagFunction(string, name, gender) {
+            // console.log(string, name, gender);
+            const sex = gender ? "male" : "female";
+            return string[0] + name + string[1] + sex + string[2];
+        }
+        const str = myTagFunction`hi,${name} is a ${gender}`;
+        console.log(str);
+    </script>
+</body>
+
+</html>

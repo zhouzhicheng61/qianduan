@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            name: "zhangsan",
+            age: 13
+        };
+        // 这里使用的变量名称不能跟之前声明过的全局变量冲突
+        // 或者给变量起名字、赋默认值
+        const { name: newName = "haha" } = obj;
+        console.log(newName);
+
+        // 应用场景，将对象的方法或者函数简化
+        const { log } = console;
+        log("haha");
+    </script>
+</body>
+
+</html>

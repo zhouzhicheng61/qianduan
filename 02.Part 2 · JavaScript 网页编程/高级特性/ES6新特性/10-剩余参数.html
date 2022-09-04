@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(1, 2, 3, 4);
+        // 对于一个未知参数数量的内容，可以用arguments
+        // ...是从当前位置开始，后续的所有内容
+        // 必须是使用在小括号最后的
+        function fun(...prgs) {
+            console.log(prgs);
+        }
+        fun(1, 2, 2, 4, 5, 3);
+    </script>
+
+</body>
+
+</html>
