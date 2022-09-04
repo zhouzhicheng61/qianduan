@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        if (true) {
+            var foo = 1;
+        }
+        // console.log(foo);
+
+        // let定义块内的变量
+        // let定义的变量在块级作用于内部能够被访问
+        if (true) {
+            let too = 1;
+        }
+        // console.log(too);
+
+        // 非常适合设置在for循环中设置的循环变量
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 5; j++) {
+                // console.log(i, j);
+            }
+        }
+
+        // 通过循环批量添加事件,如果循环中使用var来定义循环变量的话，循环变量就会一直改变，最终变成终值保存下来
+        var arr = [{}, {}, {}];
+        for (let index = 0; index < arr.length; index++) {
+            arr[index].onclick = function () {
+                // console.log(index);
+            };
+        }
+        arr[1].onclick();
+
+        // 循环实际上有两层作用于
+        for (let index = 0; index < 3; index++) {
+            let index = "gaga";
+            // console.log(index);
+        }
+
+        // 上面的代码相当于下面的代码
+        let index = 0;
+        if (index < 3) {
+            let index = "gaga";
+            // console.log(index);
+        };
+        index++;
+
+        // let 不会进行变量声明提升
+    </script>
+</body>
+
+</html>

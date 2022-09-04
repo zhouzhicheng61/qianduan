@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const就是在let的基础上增加了一个只读的属性，相当于定义了一个常量
+        // const声明的时候一定要给一个初始值
+        const a1 = "zhangsan";
+        // a1 = "13";  // 常量是不能直接被修改的
+
+        // 设置成对象的话，可以修改对象内的属性或方法
+        // 相当于是const是指向内存的，不改变内存地址即可
+        const a2 = {};
+        a2.name = "zhangsan";
+        a2.age = 18;
+        console.log(a2);
+    </script>
+</body>
+
+</html>
