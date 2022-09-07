@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class类方法
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            sayHi() {
+                console.log(`hi,my name is ${this.name},my age is ${this.age}`);
+            }
+            static create(name, age) {
+                console.log(this);
+                return new Person(name, age);
+            }
+        }
+
+        // 定义了静态方法之后可以不用再new了
+        // const p1 = new Person("zhangsan", 14);
+
+        const p1 = Person.create("zhangsan", 14);
+        console.log(p1);
+    </script>
+</body>
+
+</html>

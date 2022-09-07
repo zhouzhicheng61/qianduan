@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 假设在 shaerd.js中有一个全局变量cache
+        const cache = {};
+        // 在 a.js中添加一个缓存数据
+        cache['foo'] = Math.random();
+        // 在 b.js中添加另一个缓存数据，但我不知道有一个叫foo的key
+        cache['foo'] = "123";
+        console.log(cache);
+        // 这就导致了，名字冲突之后，数据就被覆盖了
+
+        // 为了解决这个问题，就可以应用Symbol数据类型
+        // Symbol 表示一个独一无二的值
+        const s = Symbol();
+        console.log(s);
+        // 可以给Symbol添加一个参数，作为描述
+        console.log(Symbol("foo"));
+
+        const obj = {
+            [Symbol()]: 777,
+            name: "zhangsan"
+        };
+        obj[Symbol()] = 123;
+        obj[Symbol()] = 456;
+        console.log(obj);
+        // 这些可以是对象的私有成员，在外面无法引用key为Symbol()的键值对
+        console.log(obj[Symbol()], obj["name"]);
+
+        // 通过Symbol()创建的都是全新的唯一的值;
+        console.log(Symbol() == Symbol());
+
+        // 如果想搞一个相同的Symbol可以用for方法，传入一个字符串，如果是相同的字符串内容，则这两个symbol相同
+        const a = Symbol.for(1);
+        const b = Symbol.for("1");
+        console.log(a === b);
+
+        // 自定义toString标识
+        const c = {
+            [Symbol.toStringTag]: "hah"
+        };
+        console.log(c.toString());  // [object Object] => [object hah]
+
+        // 想要获取自己的symbol属性的话,但是他只能获取symbol，其他的都获取不了
+        console.log(Object.getOwnPropertySymbols(c));
+    </script>
+</body>
+
+</html>

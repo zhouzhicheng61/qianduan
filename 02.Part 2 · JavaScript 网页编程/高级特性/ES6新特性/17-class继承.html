@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class类方法
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            sayHi() {
+                console.log(`hi,my name is ${this.name},my age is ${this.age}`);
+            }
+        }
+
+        class Student extends Person {
+            constructor(name, age, number) {
+                // 指向父类，相当于调用了父类的constructor
+                // 要引用父类的内容就用super
+                super(name, age);
+                this.number = number;
+            }
+            hello() {
+                super.sayHi();
+                console.log(`my number is ${this.number}`);
+            }
+        };
+
+        const s1 = new Student("lisi", 12, 99999999999);
+        s1.hello();
+    </script>
+</body>
+
+</html>

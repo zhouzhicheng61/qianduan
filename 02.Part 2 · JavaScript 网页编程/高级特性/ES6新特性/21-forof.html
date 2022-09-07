@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // for of 循环
+        // 作为遍历所有数据结构的统一方式
+        const arr = [1, 3, 4, 5, 6, 3, 3, 222, 1, 1, 2, 4, 4];
+
+        for (const item of arr) {
+            // console.log(item);
+        }
+        // forEach无法打断遍历
+        arr.forEach(item => {
+            // console.log(item);
+        })
+
+        for (const item of arr) {
+            console.log(item);
+            if (item > 100) {
+                break;
+            }
+        }
+
+        const s2 = new Set(["foo", "bar", "baz"]);
+        for (const item of s2) {
+            console.log(item);
+        };
+
+        const m1 = new Map();
+        m1.set("foo", 1);
+        m1.set("zrr", 2);
+        for (const [key, value] of m1) {
+            console.log(key, value);
+        }
+
+        // 普通对象不用for of遍历
+    </script>
+</body>
+
+</html>

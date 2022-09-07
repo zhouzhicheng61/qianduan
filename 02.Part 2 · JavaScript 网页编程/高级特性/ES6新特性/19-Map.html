@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {};
+        obj[true] = "boolean";
+        obj[123] = "number";
+        obj[{ a: 1 }] = "object";
+
+        console.log(Object.keys(obj));
+        console.log(obj[{}]);
+
+        // 面临的问题是对象不能查看详细内容，只会被'[object Object]'代替，看不出来是啥东西
+
+        const map = new Map();
+        const a = { a: 1 };
+        map.set(a, 1000);   // 设置键值对，一一对应，写啥就是啥
+        console.log(map);
+        console.log(map.get(a));
+        console.log(map.has(a));    // 查找是否有某个key
+        // 同样的还有delete和clear方法
+
+        // 遍历map
+        map.forEach((value, key) => {
+            console.log(key, value)
+        })
+
+        // map跟对象比较像，但是可以是使用任意类型的数据当成key,{}对象当中只能使用字符串当成key
+    </script>
+</body>
+
+</html>

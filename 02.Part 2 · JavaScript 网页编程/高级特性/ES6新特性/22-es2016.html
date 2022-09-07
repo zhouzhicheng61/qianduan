@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, true, NaN, 23, 'hello'];
+        // indexOf 有一些小问题 返回索引
+        console.log(arr.indexOf(NaN));  // -1
+        // includes返回有无true false
+        console.log(arr.includes(NaN));
+
+        // 指数运算符
+        console.log(Math.pow(2, 3));    // 2的3次幂 
+        // 等价于
+        console.log(2 ** 3);    // 2的3次幂
+    </script>
+</body>
+
+</html>

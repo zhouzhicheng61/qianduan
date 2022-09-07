@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // set 集合，不允许重复
+        const s = new Set();
+        s.add(1).add(2).add(4).add(2);
+        console.log(s);
+
+        // s.forEach(i => console.log(i));
+        // 等价于
+        for (let i of s) {
+            // console.log(i);
+        };
+
+        console.log(s.size);
+
+        // 检查是否包含某内容
+        console.log(s.has(4));
+
+        // 删除某内容，并返回是否删除成功
+        console.log(s.delete(333));
+        console.log(s);
+
+        // 清空set
+        s.clear();
+        console.log(s);
+
+        //应用场景：去重
+        const arr = [1, 2, 3, 3, 4, 5, 6, 7, 8, 78, 5, 4, 4, 3, 2, 2, 1, 43, 4, 5, 3, 3, 2];
+        var s1 = new Set(arr);
+        console.log(s1);
+        // 从集合转数组
+        // 方法一
+        // s1 = Array.from(s1);
+        // console.log(s1);
+        // 方法二
+        // s1 = [...s1];
+        // console.log(s1);
+    </script>
+</body>
+
+</html>
