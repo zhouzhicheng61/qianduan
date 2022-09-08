@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .demo {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="添加" id="btn1">
+    <input type="button" value="删除" id="btn2">
+    <input type="button" value="切换" id="btn3">
+    <input type="button" value="检测" id="btn4">
+    <div id="box" class="box"></div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        var $box = $("#box");
+        var $btn1 = $("#btn1");
+        var $btn2 = $("#btn2");
+        var $btn3 = $("#btn3");
+        var $btn4 = $("#btn4");
+
+        // 点击按钮添加一个类名
+        $btn1.click(function () {
+            $box.addClass("demo");
+        });
+
+        // 点击按钮删除一个类名
+        // 如果不传参数，会清空类名
+        $btn2.click(function () {
+            $box.removeClass("demo");
+        });
+
+        // 点击按钮切换类名
+        $btn3.click(function () {
+            $box.toggleClass("demo");
+        });
+
+        // 点击按钮检测类名是否存在
+        $btn4.click(function () {
+            console.log($box.hasClass("demo"));
+        });
+    </script>
+</body>
+
+</html>

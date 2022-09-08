@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box"></div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // 获取元素，没有兼容问题的方法
+        // var box = document.getElementById("box");
+        // console.log(box);
+        // var box = document.getElementsByTagName("div")[0];
+        // console.log(box);
+
+        // jQuery 方法 获取元素 用css里面的各种选择器都可以
+        // $(".box")
+
+        // 获取css样式，并进行设置
+        // 获取css属性值
+        console.log($(".box").css("width"));
+        // 修改css属性值
+        $(".box").css("width", 100);
+        console.log($(".box").css("width"));
+
+        // 事件简化
+        $(".box").click(function () {
+            $(this).css("background-color", "skyblue");
+        })
+
+        // 运动方法
+        $(".box").animate({ "width": 500 }, 5000);
+    </script>
+</body>
+
+</html>

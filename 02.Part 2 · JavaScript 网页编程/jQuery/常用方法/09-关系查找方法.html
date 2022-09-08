@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1000px;
+            height: 80px;
+            border: 1px solid #333;
+            margin-top: 10px;
+        }
+
+        .box p,
+        .box h2 {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <h2>h2</h2>
+        <h2>h2</h2>
+        <h2>h2</h2>
+    </div>
+    <div class="box">
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <h2>h2</h2>
+        <h2>h2</h2>
+        <h2>h2</h2>
+    </div>
+    <div class="box">
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <h2>h2</h2>
+        <h2>h2</h2>
+        <h2>h2</h2>
+    </div>
+
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        var $ps = $("p")
+        var $box = $(".box")
+
+        // 通过点击某元素，找到他的兄弟，父亲，子级
+        $ps.click(function () {
+            // 让点击的元素，颜色变红
+            // this 指向的是触发事件的事件源的原生JS对象
+            // 使用$()包裹this，以指向jQuery对象
+            $(this).css("background-color", "red");
+            // 利用parent()方法，找到该对象的父级
+            $(this).parent().css("background-color", "pink");
+            // 利用siblings()方法，找到除自己外的所有同级元素，只能找亲兄弟
+            $(this).siblings("h2").css("background-color", "yellow");
+        });
+
+        // 利用children()方法，得到该对象的所有子级
+        // $box.click(function () {
+        //     // $(this).children().css("background-color", "blue");
+        //     // 可以添加参数，添加参数后，可以按照指定的选择器，在子级中进行二次选择
+        //     $(this).children(":odd").css("background-color", "blue");
+        // });
+    </script>
+</body>
+
+</html>

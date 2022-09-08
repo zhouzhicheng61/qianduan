@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <input type="button" value="发送">
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // 获取元素
+        var $btn = $("input:button")
+        $btn.click(function () {
+            var n = 5;
+            $(this).prop("disabled", true).val(n + "s后重新发送");
+            // 使用箭头函数，可以调用父级this对象
+            var timer = setInterval(() => {
+                n--;
+                $(this).val(n + "s后重新发送");
+                if (n <= 0) {
+                    $(this).prop("disabled", false).val("重新发送");
+                    clearInterval(timer);
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

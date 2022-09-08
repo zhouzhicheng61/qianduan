@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parents {
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .demo {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="切换" id="btn1">
+    <div id="parents">
+        <div id="box" class="box"></div>
+    </div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        var $box = $("#box");
+        var $btn1 = $("#btn1");
+        var $parents = $("#parents");
+
+        $btn1.click(function () {
+            $box.toggleClass("demo");
+        });
+
+        // jQuery 自己的事件类型 mouseenter()事件 鼠标进入元素触发事件
+        $parents.mouseenter(function () {
+            console.log("parents:我进来啦~");
+        });
+
+        // jQuery 自己的事件类型 mouseleave()事件 鼠标离开元素触发事件
+        $parents.mouseleave(function () {
+            console.log("parents:我出来啦~");
+        });
+
+        $box.mouseenter(function () {
+            console.log("box:我进来啦~");
+        });
+
+        $box.mouseleave(function () {
+            console.log("box:我出来啦~");
+        });
+
+        // 注意：mouseenter和mouseleave都是没有冒泡事件的
+        // 注意：mouseover和mouseout都是有冒泡事件的
+
+
+        // hover()事件
+        // 等价于mouseenter和mouseleave事件进行了合并书写
+        $box.hover(function () {
+            $box.toggleClass("demo");
+
+        }, function () {
+            $box.toggleClass("demo");
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1000px;
+            height: 80px;
+            border: 1px solid #333;
+            margin-top: 10px;
+        }
+
+        .box p,
+        .box h2 {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <h2>h2</h2>
+        <h2>h2</h2>
+        <h2>h2</h2>
+    </div>
+    <div class="box">
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <h2>h2</h2>
+        <h2>h2</h2>
+        <h2>h2</h2>
+    </div>
+    <div class="box">
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <h2>h2</h2>
+        <h2>h2</h2>
+        <h2>h2</h2>
+    </div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // 链式调用，就是接在后面接着打点调用函数即可
+        var $ps = $("p")
+        var $box = $(".box")
+
+        // $ps.click(function () {
+        //     $(this).siblings("h2").css("background-color", "skyblue").html("hahahahhahaha");
+        // });
+
+
+        // 案例1:点击一个元素，让本身变为红色，兄弟级变为金色
+        // $ps.click(function () {
+        //     $(this).css("background-color", "red")
+        //         .siblings().css("background-color", "gold");
+        // });
+
+        // 案例2：点击一个元素，本身变成红色，兄弟变为金色，父亲变为粉色，父亲的兄弟变为蓝色，父亲的兄弟的子级变为黄绿色
+        $ps.click(function () {
+            $(this).css("background-color", "red")  // 本身变成红色
+                .siblings().css("background-color", "gold")   // 兄弟变为金色
+                .parents().css("background-color", "pink") // 父亲变为粉色
+                .siblings().css("background-color", "blue") // 父亲的兄弟变为蓝色
+                .children().css("background-color", "yellowgreen") //父亲的兄弟的子级变为黄绿色
+        });
+    </script>
+</body>
+
+</html>

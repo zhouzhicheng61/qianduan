@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1000px;
+            height: 80px;
+            border: 1px solid #333;
+            margin-top: 10px;
+            background-color: #fff;
+        }
+
+        .box p,
+        .box span {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            background-color: #ccc;
+        }
+
+        .box span {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box1">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p>
+            <span></span>
+        </p>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="box">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="box">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // 获取元素
+        var $box1 = $("#box1")
+        var $box = $(".box")
+        var $child = $box.children()
+
+        // find()方法，传递一个参数，参数部分规定的选择器，查找范围是jQuery对象的【所有后代】
+        $box1.find("span").css("background-color", "red");
+
+        // 兄弟元素方法：next(),prev()紧邻的下一个和上一个
+        $child.click(function () {
+            // $(this).next().css("background-color", "green");
+            // $(this).prev().css("background-color", "blue");
+
+            // nextAll(),prevAll()后面所有兄弟和前面所有兄弟,可以传参进行二次筛选
+            $(this).nextAll("span").css("background-color", "green");
+            $(this).prevAll().css("background-color", "blue");
+
+            // parents()方法，查找包含body在内的祖先级
+            $(this).parents("div").css("background-color", "skyblue");
+        });
+    </script>
+</body>
+
+</html>

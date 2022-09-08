@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">这是原始的 div1 <span>span1</span></div>
+    <input type="text" value="请输入用户名1"><br>
+    <input type="text" value="请输入用户名2"><br>
+    <textarea cols="30" rows="10">请输入自我介绍</textarea><br>
+    <select>
+        <option value="tianjin">天津</option>
+        <option value="beijing">北京</option>
+        <option value="shanghai">上海</option>
+    </select>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // 获取元素
+        var $box = $(".box");
+        var $input = $("input");
+        var $ta = $("textarea");
+        var $se = $("select");
+        var $opt = $("option");
+
+        // html()方法或text()方法获取
+        console.log($input.html()); // 获取不了
+        console.log($input.text()); // 获取不了
+        console.log($ta.html()); // 获取
+        console.log($ta.text()); // 获取
+        console.log($se.html()); // 获取
+        console.log($se.text()); // 获取
+        console.log($opt.html()); // 获取不了
+        console.log($opt.text()); // 获取不了
+
+        // val()方法
+        // 相当于原生JS当中的value属性
+        console.log($box.val()); // 获取不了
+        console.log($input.val()); // 获取第一个的valu值
+        console.log($ta.val()); // 获取
+        console.log($se.val()); // 获取当前选中的值
+        console.log($opt.val()); // 获取第一个的value值
+
+        // 设置内容
+        $input.val("hahahah");
+        $ta.val("hahahah");
+        $se.val("beijing"); // 改变的是选中项
+        $opt.val("guangzhou");  // 改变的是option标签的value属性
+
+    </script>
+</body>
+
+</html>

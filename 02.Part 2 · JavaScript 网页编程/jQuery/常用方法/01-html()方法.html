@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box"><a href="">hahahhaha</a></div>
+    <div class="box">这是原始的 div2</div>
+    <div class="box">这是原始的 div3</div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // html() 方法
+        var $box = $(".box");
+        // 如果给方法传入参数，则批量更改元素内部内容;如果是标签字符，则按标签加载
+        // $box.html("这是一<p>?????</p>个新内容"); //);
+        // 如果不传递参数，则获取元素内容,但是只能获取第一个元素内部的文案
+        console.log($box.html());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="demo">
+        <p>段落1</p>
+        <p>段落2</p>
+        <p>段落3</p>
+        <p>段落4</p>
+        <p>段落5</p>
+        <p>段落6</p>
+        <p>段落7</p>
+        <p>段落8</p>
+        <input type="button" value="按钮1">
+        <input type="button" value="按钮1" disabled="disabled">
+        <input type="button" value="按钮1">
+        <input type="text">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <p>段落9</p>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // jQuery API 中文文档:https://jquery.cuishifeng.cn/
+        // 基础选择器
+        $("*");
+        $("p");
+        $(".box");
+        $("#demo");
+        // 高级选择器
+        $(".box p")[3].innerHTML = "???";
+        // 表单对象属性
+        $("input:disabled").css("background-color", "red");
+        // 表单选择器，:input比较特殊是选择所有表单元素
+        $(":input").css("background-color", "skyblue");
+        // 表单选择器
+        $(":text").css("background-color", "blue");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">这是原始的 div1 <span>span1</span></div>
+    <div class="box">这是原始的 div2 <span>span2</span></div>
+    <div class="box">这是原始的 div3 <span>span3</span></div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // text()方法
+        var $box = $(".box");
+
+        // text()方法相当于innerText属性
+        // 不添加参数，将所有原生标签的文本内容提取出来
+        console.log($box.text());
+        // 添加参数，如果是普通文本，直接用普通文本替换内容
+        $box.text("普通文本");
+        // 如果有标签内容，也不会变成标签，还是按照普通文本内容加载，写啥是啥
+        $box.text("普通<p>???????</p>文本");
+    </script>
+</body>
+
+</html>

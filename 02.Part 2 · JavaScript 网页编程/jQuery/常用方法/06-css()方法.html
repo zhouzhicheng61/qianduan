@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" style="width: 300px;"></div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        var $box = $(".box");
+
+        // 获取属性值
+        console.log($box.css("width"));
+
+        // 修改属性值
+        $box.css("width", "+=100");
+
+        // 复合属性的单一属性写法，可以是横线写法，也可以是驼峰命名法
+        console.log($box.css("background-color"));
+        console.log($box.css("backgroundColor"));
+
+        // 多属性设置，使用对象型数据进行书写
+        $box.css({
+            "widht": 500,
+            "height": 300
+        });
+    </script>
+</body>
+
+</html>

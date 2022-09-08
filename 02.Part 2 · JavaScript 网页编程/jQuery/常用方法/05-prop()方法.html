@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮" disabled="disabled" class="btn"><br>
+    <input type="checkbox" checked="checked" class="choose"> 绘画
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // 获取元素
+        var $btn = $(".btn");
+        var $choose = $(".choose");
+
+        // 获取disabled的属性值
+        var btn = document.querySelector(".btn");
+        console.log(btn.disabled);
+        console.log($btn.attr("disabled"));
+        // 使用prop方法可以达到与原生的方法相同的效果
+        // 多针对:selected,checked,disabled 等表单元素属性
+        // 此类属性的属性值和属性名相同
+        // 获取就传入一个属性名
+        console.log($btn.prop("disabled"));
+        // 设置就传入一个属性名和一个属性值
+        $choose.prop("checked", false);
+    </script>
+</body>
+
+</html>

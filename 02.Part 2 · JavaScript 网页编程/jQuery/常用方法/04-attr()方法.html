@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="images/cat.jpg" alt="这是一只猫" hobby="fish" class="pic">
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // attr()方法
+        // 用来获取或设置标签的属性值
+        var $img = $("img");
+        // 设置标签的属性值，需要两个参数
+        $img.attr("src", "images/cat2.jpg");
+
+        // 获取标签的属性值，只需要一个参数
+        console.log($img.attr("alt"));
+        console.log($img.attr("hobby"));
+
+        // 删除某一条属性，只需要传入属性名称即可
+        $img.removeAttr("hobby");
+    </script>
+</body>
+
+</html>

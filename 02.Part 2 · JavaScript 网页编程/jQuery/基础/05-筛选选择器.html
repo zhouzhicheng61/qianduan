@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="demo">
+        <p>段落1</p>
+        <p>段落2</p>
+        <p class="para">段落3</p>
+        <p class="para">段落4</p>
+        <p class="para">段落5</p>
+        <p>段落6</p>
+        <p>段落7</p>
+        <p>段落8</p>
+    </div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // 筛选选择器，也叫过滤选择器，jQuery中新增的自己的选择器
+        // 用法：在基础选择器后面增加一些筛选的单词，筛选出前面选择器的选中内容中的一部分，或者个可以作为高级选择器的一部分
+
+        // 第一个元素
+        $(".box p:first").css("background-color", "skyblue");
+
+        // 最后一个元素
+        $(".box p:last").css("background-color", "pink");
+
+        // 第几项元素
+        $(".box p:eq(2)").html("被eq(2)修改的内容").css({ "background-color": "green", "width": 150 });
+
+        // 大于下标为index的项
+        $(".box p:gt(2)").html("被gt(2)修改的内容").css({ "background-color": "red", "width": 150 });
+
+        // 小于则用lt替换gt
+
+        // 奇数项
+        $(".box p:odd").html("我是奇数项").css({ "background-color": "yellow", "width": 150 });
+
+        // 偶数项则用even替换odd
+
+        // 去除所有与给定选择器匹配的元素,相当于是反选，里面可以搭配其他任意选择器
+        $(".box p:not(.para)").html("我没有被排除哦~").css({ "background-color": "yellow", "width": 150 });
+
+
+        // 筛选方法有first(),last(),eq()，跟筛选选择器效果一样
+        $("p").first().css("background-color", "green");
+    </script>
+</body>
+
+</html>
