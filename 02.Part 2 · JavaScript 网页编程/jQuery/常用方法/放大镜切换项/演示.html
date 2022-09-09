@@ -35,20 +35,20 @@
       <img src="img/b1.jpg" alt="">
     </div>
   </div>
-  <script src="lib/jquery-1.12.4.js"></script>
+  <script src="lib/jQuery3.6.1.js"></script>
   <script>
     // 将文件路径的前缀存储到变量中
     var path = "img/";
     // 1、鼠标移上小图片，需要做两件事情
-    $(".leftBox ul li img").mouseover(function(){
+    $(".leftBox ul li img").mouseover(function () {
       // 首先：给img所在的父级li标签去切换类名，实现突出显示
       $(this).parent().addClass("active").siblings().removeClass("active");
       // 其次：给中图和大图换图片路径,路径由img小图片的自定义属性获取
       var msrc = path + $(this).attr("msrc");
       var bsrc = path + $(this).attr("bsrc");
       // 设置给对应的img标签
-      $(".leftBox .top img").attr("src",msrc);
-      $(".rightBox img").attr("src",bsrc);
+      $(".leftBox .top img").attr("src", msrc);
+      $(".rightBox img").attr("src", bsrc);
     });
   </script>
 </body>
