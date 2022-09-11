@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            border: 10px solid #ccc;
+            position: absolute;
+            left: 0;
+            top: 30px;
+            background: url(images/0.jpg) no-repeat center center;
+        }
+
+        div span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="true,true" id="btn1">
+    <input type="button" value="true,false" id="btn2">
+    <input type="button" value="false,true" id="btn3">
+    <input type="button" value="false,false" id="btn4">
+    <div class="box1"><span></span></div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        var $box1 = $(".box1");
+        var during = 2000;
+        // box1 有四个运动进行排队
+        $box1.animate({ "left": 500 }, during);
+        $box1.animate({ "top": 500 }, during);
+        $box1.animate({ "left": 0 }, during);
+        $box1.animate({ "top": 30 }, during);
+
+        // stop()方法
+        // 参数一：true表示清空；false表示不清空值定制当前的一个动画
+        // 参数二：true表示立即完成，对象会立刻走到结束位置；false表示不完成当前动画，立即停止在当前位置
+        $("#btn1").click(function () {
+            $box1.stop(true, true); // 清空队列，立即到当前动画的结束位置
+        });
+        $("#btn2").click(function () {
+            $box1.stop(true, false);    // 清空队列，停在当前位置
+        });
+        $("#btn3").click(function () {
+            $box1.stop(false, true);    // 立即到当前动画的结束位置，开始下一个动画
+        });
+        $("#btn4").click(function () {
+            $box1.stop(false, false);   // 从当前位置开始直接执行下一个动画
+        });
+    </script>
+</body>
+
+</html>

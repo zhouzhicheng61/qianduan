@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮">
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // 原生入口函数
+        // onload事件在加载的时候，指的是页面中所有的资源【DOM树、音频、视频、图片】加载完毕之后，才能触发
+        window.onload = function () {
+            console.log(1);
+            var btn = document.getElementsByTagName("input")[0];
+            console.log(btn);
+        };
+
+        // jQuery中的入口函数
+        // 仅需要等待页面中的 DOM树 加载完毕就可以执行了
+        $(document).ready(function () {
+            console.log(2);
+            var btn = document.getElementsByTagName("input")[0];
+            console.log(btn);
+        });
+
+        // 简化写法
+        // 在一个页面中，可以书写多个jQuery的入口函数
+        $(function () {
+            console.log(3);
+            var btn = document.getElementsByTagName("input")[0];
+            console.log(btn);
+        });
+    </script>
+</body>
+
+</html>

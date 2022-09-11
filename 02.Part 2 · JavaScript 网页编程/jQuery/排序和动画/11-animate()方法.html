@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            width: 80px;
+            height: 80px;
+            background-color: #aaa;
+            margin-bottom: 10px;
+            position: relative;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // animate(styles,speed,easing,callback)
+        // styles:css的属性名和运动结束位置的属性值的集合
+        // speed:slow,normal,fast;数值，单位ms
+        // easing:规定在不同的动画点中设置动画速度的额啊sing函数，值包含swing(默认值，有先加速后减速效果)和linear(匀速)
+        // callback:函数执行完成后，要执行的函数
+        var $ps = $("p");
+        // 习惯将运动时间存储到一个变量中
+        var during = 500;
+        $ps.click(function () {
+            // 让自己的left的值变为500
+            // 使用animate()方法
+            $(this).animate({ "left": 500, "width": 200, "height": 100, "opacity": 0.3 }, during, "linear", function () {
+                // 在运动结束后，元素变为红色
+                $(this).css("background-color", "red");
+            });
+        });
+    </script>
+</body>
+
+</html>

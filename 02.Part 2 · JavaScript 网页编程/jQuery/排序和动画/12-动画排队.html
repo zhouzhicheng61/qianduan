@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            border: 10px solid #ccc;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: url(images/0.jpg) no-repeat center center;
+        }
+
+        .box2 {
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        div span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"><span></span></div>
+    <div class="box2"><span></span></div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        var $box1 = $(".box1");
+        var $box2 = $(".box2");
+        var during = 2000;
+
+        // 相同元素，依次执行动画
+        $box1.animate({ "left": 400 }, during);
+        $box1.animate({ "top": 400 }, during);
+        $box1.animate({ "left": 0 }, during);
+        $box1.animate({ "top": 0 }, during);
+        // 不同元素，不用等待
+        $box2.animate({ "left": 400 }, during);
+        // 非运动代码，不用等待
+        $box1.css({ "width": 500, "height": 500 });
+
+        // 其他运动方法，设置给同一个元素，也会发生排队
+        $box2.mouseenter(function () {
+            $(this).children().slideUp(during);
+        });
+        $box2.mouseleave(function () {
+            $(this).children().slideDown(during);
+        });
+
+        // 给同一个元素的多个运动进行链式调用写法
+        $box1.children().fadeToggle().fadeToggle().fadeToggle().fadeToggle()
+    </script>
+</body>
+
+</html>

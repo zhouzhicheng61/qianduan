@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: fixed;
+            bottom: 10px;
+            display: block;
+            width: 320px;
+            height: 480px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="滑动隐藏" id="btn1">
+    <input type="button" value="滑动显示" id="btn2">
+    <input type="button" value="滑动切换" id="btn3"><br>
+    <img src="images/cat.jpg" id="pic">
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // slideDown()方法，滑动显示
+        // slideUp()方法，滑动隐藏
+        // slideToggle()方法,滑动切换
+        // 不传参数，过渡时间是400ms
+        // 通过添加参数可以添加过渡动画效果
+        // 单词属性：slow、normal、fast
+        // 数字属性：单位ms
+        // 注意：滑动元素如果没有宽高属性，则无法实现滑动动画
+        // 有任意一个都可以,只有高度对角滑动，只有宽度垂直滑动
+        // 不同的定位方式跟设置的top bottom有关
+
+        var $pic = $("#pic");
+        var $btn1 = $("#btn1");
+        var $btn2 = $("#btn2");
+        var $btn3 = $("#btn3");
+
+        $btn1.click(function () {
+            $pic.slideUp("slow");
+        });
+
+        $btn2.click(function () {
+            $pic.slideDown("fast");
+        });
+
+        $btn3.click(function () {
+            $pic.slideToggle(2000);
+        });
+    </script>
+</body>
+
+</html>
