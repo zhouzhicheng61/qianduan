@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 330px;
+            height: 30px;
+            margin: 100px auto 0;
+            padding-left: 10px;
+            background-image: url(img/bg.jpg);
+        }
+
+        .wrap li {
+            background-image: url(img/libg.jpg);
+        }
+
+        .wrap>ul>li {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .wrap a {
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #000;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .wrap li ul {
+            position: absolute;
+            top: 30px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul id="menu">
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul class="ul">
+                    <li>
+                        <a href="javascript:void(0);">二级菜单11</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">二级菜单12</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">二级菜单13</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单2</a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">二级菜单21</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">二级菜单22</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">二级菜单23</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单3</a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">二级菜单31</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">二级菜单32</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">二级菜单33</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="lib/jQuery3.6.1.js"></script>
+    <script>
+        var $yiji = $(".wrap ul li a");
+        $yiji.mouseenter(function () {
+            $(this).siblings().stop(true).slideDown("fast");
+        });
+        $yiji.mouseleave(function () {
+            $(this).siblings().stop(true).slideUp("fast");
+        });
+    </script>
+</body>
+
+</html>

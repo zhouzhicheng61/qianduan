@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 1300px;
+        }
+
+        #box {
+            width: 1200px;
+            height: 400px;
+            border: 2px solid red;
+            margin: 100px auto;
+        }
+
+        #box li {
+            float: left;
+            width: 240px;
+            height: 400px;
+        }
+
+        /* li 标签的背景图，需要使用 js 代码动态添加 */
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="lib/jQuery3.6.1.js"></script>
+    <script>
+        var $lis = $("li");
+        var arr = ["fq1.jpg", "fq2.jpg", "fq3.jpg", "fq4.jpg", "fq5.jpg"];
+        var imgPath = "img/";
+
+        $lis.each(function (i) {
+            $(this).css("background-image", "url(" + imgPath + arr[i] + ")");
+        });
+
+        $lis.mouseenter(function () {
+            $(this).stop(true).animate({ "width": 800 }, 1000).siblings().stop(true).animate({ "width": 100 }, 1000);
+        });
+
+        $lis.parent().mouseleave(function () {
+            $lis.stop(true).animate({ "width": 240 }, 1000);
+        });
+    </script>
+</body>
+
+</html>
