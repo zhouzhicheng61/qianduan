@@ -9,7 +9,52 @@
 </head>
 
 <body>
+    <ul>
+        <li class="old">这是原有的标签</li>
+    </ul>
+    <div class="box">
+        <p>段落</p>
+        <h2>标题</h2>
+    </div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        var $newLi = $("<li>这是一个新的li标签</li>");
+        var $ul = $("ul");
+        var $oldLi = $(".old");
 
+        // 追加元素1
+
+        // 在父元素最后追加
+
+        // 向父元素jQuery对象.append(新创建的jQuery对象)
+        $ul.append($newLi);
+        // 新创建jQuery对象.appendTo('父元素选择器'或父元素jQuery对象)
+        $newLi.appendTo($ul);
+
+        // 在父元素最前追加
+
+        // 向父元素jQuery对象.prepend(新创建的jQuery对象)
+        $ul.prepend($newLi);
+        // 新创建jQuery对象.prependTo('父元素选择器'或父元素jQuery对象)
+        $newLi.prependTo($ul);
+
+
+        // 追加元素2
+
+        // 向元素后面追加新的兄弟
+
+        // jQuery对象.after(新创建的jQuery对象)
+        $oldLi.after($newLi);
+        // 新创建jQuery对象.insertAfter('选择器'或jQuery对象)
+        $newLi.insertAfter($oldLi);
+
+        // 向元素前面追加新的兄弟
+
+        // jQuery对象.before(新创建的jQuery对象)
+        $oldLi.before($newLi);
+        // 新创建jQuery对象.insertBefore('选择器'或jQuery对象)
+        $newLi.insertBefore($oldLi);
+    </script>
 </body>
 
 </html>

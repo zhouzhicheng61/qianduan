@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <p>段落</p>
+        <h2>标题</h2>
+    </div>
+    <ul>
+        <li>这是第 1 个标签</li>
+        <li>这是第 2 个标签</li>
+        <li class="third">这是第 3 个标签</li>
+        <li>这是第 4 个标签</li>
+        <li>这是第 5 个标签</li>
+    </ul>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // 删除元素自己
+        // $(".third").remove();
+        // 清空元素内部的所有子节点
+        // 方式1:.empty()方法-推荐使用，清空内部的所有元素及元素相关的事件
+        // 方式2:.html("")方法-仅清空内部的元素，不清理内存中的元素的事件
+        // $(".third").empty();
+        // $(".third").html("");
+    </script>
+</body>
+
+</html>
