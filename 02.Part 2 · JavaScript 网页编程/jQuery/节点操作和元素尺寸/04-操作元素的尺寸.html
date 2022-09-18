@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            border: 20px solid skyblue;
+            margin: 30px;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">123</div>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // width() height() 方法
+        // 不传参数是获取属性值、传入参数是设置属性值
+        var $box = $(".box");
+        // console.log($box.width(500), $box.height());
+
+        // innerWdith() innerHeight() 内容部分+padding
+        // 设定好了padding之后，再去修改inner相关属性是直接修改width或者height，不修改padding
+        // console.log($box.innerWidth(500), $box.innerHeight());
+
+        // outerWidth() outerHeight() 内容+padding+border
+        // 也是值修改width和height padding和border不会发生变化
+        console.log($box.outerWidth(400), $box.outerHeight());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 4000px;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #333;
+            margin: 50px auto;
+            font: 16px/32px "宋体";
+            overflow: auto;
+        }
+
+        input {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+    </div>
+    <input type="button" value="返回顶部" class="backtop">
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // scrollTop() 方法 获取或设置卷走的垂直距离
+        // scrollLeft() 方法 为水平
+        // 不传参获取，传参设置
+        var $box = $(".box");
+        var $backtop = $(".backtop");
+        $box.scroll(function () {
+            console.log($(this).scrollTop());
+        });
+        $(document).scroll(function () {
+            console.log($(this).scrollTop());
+        })
+        $backtop.click(function () {
+            $(document).scrollTop(0);
+        });
+    </script>
+</body>
+
+</html>
