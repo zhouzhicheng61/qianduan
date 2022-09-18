@@ -46,3 +46,6 @@ print(a)
 
 b = [list[i][-i - 1] for i in range(len(list))]
 print(b)
+
+for i in range(len(list) - 1, -1, -1):
+    print(i)
