@@ -6,7 +6,7 @@ x_1 = symbols('x_1')
 x_2 = symbols('x_2')
 
 # define objective function
-fun = x_1**2 + 4 * x_2**2
+fun = x_1**2 - 2 * x_1 * x_2 + 4 * x_2**2 + x_1 - 3 * x_2
 
 # take derivative of x_1 and x_2
 grad_1 = diff(fun, x_1)
@@ -33,9 +33,8 @@ print(
     % (iter_cnt, x_1_value, x_2_value, current_obj, grad_1_value, grad_2_value,
        current_step_size))
 
-while (iter_cnt <= MaxIter
-       and abs(grad_1_value) + abs(grad_2_value) >= epsilon):
-    # while (abs(grad_1_value) + abs(grad_2_value) > epsilon):
+# while (iter_cnt <= MaxIter and abs(grad_1_value) + abs(grad_2_value) >= epsilon):
+while (abs(grad_1_value) + abs(grad_2_value) > epsilon):
     iter_cnt += 1
     # find the step size
     t = symbols('t')
