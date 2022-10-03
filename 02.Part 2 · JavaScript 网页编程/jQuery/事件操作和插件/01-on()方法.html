@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮">
+    <ul>
+        <li>刘备</li>
+        <li>诸葛亮</li>
+        <li>关羽</li>
+        <li>张飞</li>
+    </ul>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+
+        // 简单注册
+        // $('input').click(function () {
+        //     alert('1');
+        // });
+
+        // on()方法
+        // on(事件名，事件处理程序)
+        $('input').on('click', function () {
+            alert('2');
+        });
+        $('input').on('click', function () {
+            alert('3');
+        });
+
+        // 事件委托
+        // 原生dom中
+        // var ul = document.getElementsByTagName('ul')[0];
+        // ul.onclick = function (e) {
+        //     e.target.style.background = "red";
+        // };
+
+        // on(事件名，选择器，事件处理程序)
+        // 在事件委托当中this指代的是子孙元素
+        $('ul').on('click', 'li', function () {
+            // 事件函数的内部，这里的this指向是触发事件的元素
+            $(this).css('background-color', 'pink');
+        })
+    </script>
+</body>
+
+</html>

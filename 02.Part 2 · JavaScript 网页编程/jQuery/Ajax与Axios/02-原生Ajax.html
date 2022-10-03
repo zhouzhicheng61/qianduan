@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、创建一个XMLHTTPRequest类型的对象
+        var xhr = new XMLHttpRequest();
+        // 2、打开一个与网址之间的连接
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+        // 3、通过连接发送一次请求
+        xhr.send(null);
+        // 4、指定xhr状态变化事件处理函数
+        xhr.onreadystatechange = function () {
+            // 通过判断xhr的readyState，确定此次请求是否完成
+            if (this.readyState === 4) {
+                console.log(this.responseText);
+            };
+        };
+    </script>
+</body>
+
+</html>

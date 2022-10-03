@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: "tom",
+            age: 18,
+            cp: {
+                name: "harre",
+                age: 18
+            }
+        };
+
+        var str = '{"name": "tom", "age": 18}';
+
+        // json格式
+        // 1、JSON数据不需要存储到变量中
+        // 2、结束时不需要写分号
+        // 3、JSON数据中的属性名必须加引号
+
+        console.log(obj);
+        // stringify()方法，把对象转成字符串
+        console.log(JSON.stringify(obj));
+        // parse()方法，把字符串转成对象
+        console.log(JSON.parse(str));
+
+    </script>
+</body>
+
+</html>

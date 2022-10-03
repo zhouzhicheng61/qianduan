@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、创建一个XMLHTTPRequest类型的对象
+        var xhr = null;
+        // 兼容写法
+        if (window.XMLHttpRequest) {
+            // 标准浏览器
+            xhr = new XMLHttpRequest();
+        } else {
+            // IE6
+            xhr = new ActiveXObject('Microsoft.XMLHTTP');
+        };
+        // console.log(xhr.readyState);    // 0
+        // 2、打开一个与网址之间的连接，默认就是true，异步处理
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+        // console.log(xhr.readyState);    // 1
+        // GET 获取数据
+        // POST 提交数据
+        // PUT 更改数据
+        // DELETE 删除数据
+        // 3、通过连接发送一次请求
+
+        // GET方法不需要传参或是传一个null即可，如果想传参数，直接写在网址上即可eg:'?id=1'
+        xhr.send(null);
+
+        // POST方法需要设置一个请求头，要send参数
+        // setRequestHeader() 设置请求头
+        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // xhr.send("name=harry&age=18");
+        // 4、指定xhr状态变化事件处理函数
+        // readyState状态码
+        // 0：unsent；代理xhr被创建，但是尚未调用open()方法
+        // 1：opened；open()方法已经被调用，建立了连接
+        // 2：headers_received；send()方法已经被调用，并且已经可以获取状态行和响应头
+        // 3：loading；响应体下载中，responseText属性可能已经包含部分数据
+        // 4：done；响应体下载完成，可以直接使用responseText
+        xhr.onreadystatechange = function () {
+            // 通过判断xhr的readyState，确定此次请求是否完成
+            // switch (xhr.readyState) {
+            //     case 2:
+            //         console.log(xhr.readyState);
+            //         break;
+            //     case 3:
+            //         console.log(xhr.readyState);
+            //         console.log(xhr.responseText);
+            //         break;
+            //     case 4:
+            //         console.log(xhr.readyState);
+            //         console.log(xhr.responseText);
+            //         break;
+            // };
+            if (this.readyState === 4) {
+                console.log('请求成功');
+            };
+        };
+    </script>
+</body>
+
+</html>

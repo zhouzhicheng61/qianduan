@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .slider {
+            height: 340px;
+            width: 790px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .slider ul li {
+            position: absolute;
+            display: none;
+        }
+
+        .slider ul li:first-child {
+            display: block;
+        }
+
+
+        .arrow {
+            display: none;
+        }
+
+        .slider:hover .arrow {
+            display: block;
+        }
+
+        .arrow-left,
+        .arrow-right {
+            font-family: "SimSun", "宋体";
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }
+
+        .slider ol {
+            position: absolute;
+            left: 100px;
+            bottom: 30px;
+            width: 240px;
+            height: 20px;
+        }
+
+        .slider ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .5);
+            cursor: pointer;
+        }
+
+        .slider ol li.cur {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <ul>
+            <li><a href="#"><img src="img/jd1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/jd2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/jd3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/jd4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/jd5.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/jd6.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/jd7.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/jd8.jpg" alt=""></a></li>
+        </ul>
+        <!--箭头-->
+        <div class="arrow">
+            <span class="arrow-left">&lt;</span>
+            <span class="arrow-right">&gt;</span>
+        </div>
+        <!-- 下标 -->
+        <ol>
+            <li class="cur"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <script src="lib/jQuery3.6.1.js"></script>
+    <script>
+        // 获取元素
+        var $ulLis = $(".slider ul li");
+        var $olLis = $(".slider ol li");
+        // 信号量
+        var index = 0;
+
+        // 封装图片改变操作
+        function changeImg(index) {
+            $ulLis.eq(index).stop(true).fadeIn();
+            $olLis.eq(index).addClass("cur").siblings().removeClass("cur");
+        }
+
+        // 右按钮事件
+        $(".arrow-right").click(function () {
+            // 节流
+            if ($ulLis.eq(index).is(":animated")) {
+                return;
+            };
+            // 当前照片淡出，下一张照片淡入
+            $ulLis.eq(index).stop(true).fadeOut();
+            index++;
+            if (index == $ulLis.length) {
+                index = 0;
+            };
+            changeImg(index);
+        });
+
+        // 左按钮事件
+        $(".arrow-left").click(function () {
+            // 节流
+            if ($ulLis.eq(index).is(":animated")) {
+                return;
+            };
+            // 当前照片淡出，上一张照片淡入
+            $ulLis.eq(index).stop(true).fadeOut();
+            index--;
+            if (index == -1) {
+                index = $ulLis.length - 1;
+            };
+            changeImg(index);
+        });
+
+        // 下标选择事件
+        $olLis.click(function () {
+            $ulLis.eq(index).stop(true).fadeOut();
+            index = $(this).index();
+            changeImg(index);
+        });
+
+        // 构造运动变量
+        var timer;
+        var interval = 1000;
+        // 运动函数
+        function run() {
+            timer = setInterval(() => {
+                // $(".arrow-right").click();
+                $(".arrow-right").trigger("click");
+            }, interval);
+        };
+
+        // 自动播放
+        run();
+
+        // 停止自动播放
+        $(".slider").mouseenter(function () {
+            clearInterval(timer);
+        });
+
+        // 恢复自动播放
+        $(".slider").mouseleave(function () {
+            run();
+        });
+    </script>
+</body>
+
+</html>

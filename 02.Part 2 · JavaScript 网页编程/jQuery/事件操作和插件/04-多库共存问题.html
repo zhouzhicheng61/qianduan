@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script src="../jQuery3.6.1.js"></script>
+    <script src="other.js"></script>
+    <script>
+        // 解决方法一
+        // 使用jQuery替换$
+        jQuery('button').click(function () {
+            console.log(this);
+        });
+
+        // 解决方法二
+        // 使用jQuery.noConflict()指定一个
+        var $1 = jQuery.noConflict();
+        $1('button').click(function () {
+            console.log('this');
+        });
+    </script>
+</body>
+
+</html>

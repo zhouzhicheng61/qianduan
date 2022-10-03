@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮">
+    <ul>
+        <li>刘备</li>
+        <li>诸葛亮</li>
+        <li>关羽</li>
+        <li>张飞</li>
+    </ul>
+    <script src="../jQuery3.6.1.js"></script>
+    <script>
+        // off()方法，解绑
+        var f1 = function () {
+            alert('2');
+        };
+        var f2 = function () {
+            alert('3');
+        };
+        $('input').on('click', f1);
+        $('input').on('click', f2);
+        $('input').off('click', f1);
+
+        var f3 = function () {
+            $(this).css('background-color', 'pink');
+        };
+        var f4 = function () {
+            console.log($(this).index());
+        };
+        $('ul').on('click', 'li', f3);
+        $('ul').on('click', 'li', f4);
+        $('ul').off('click', 'li', f3);
+    </script>
+</body>
+
+</html>
