@@ -46,6 +46,11 @@
         // 4：done；响应体下载完成，可以直接使用responseText
         xhr.onreadystatechange = function () {
             // 通过判断xhr的readyState，确定此次请求是否完成
+            // 0-unsent-代理XHR被创建，但尚未调用open()方法
+            // 1-opended-open()方法已经被调用，建立了连接
+            // 2-headers_received-send()方法已经被调用，并且已经可以获取状态行和响应头
+            // 3-loading-响应体下载中，responseText属性可能已经包含部分数据
+            // 4-done-响应体下载万成，可以直接使用responseText
             // switch (xhr.readyState) {
             //     case 2:
             //         console.log(xhr.readyState);
