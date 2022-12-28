@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery3.6.1.js"></script>
+    <script>
+        // 发送post请求
+        // $.ajax({
+        //     url: 'http://localhost:3000/comments',
+        //     type: 'POST',
+        //     dataType: 'json',
+        //     data: { 'postId': 2, 'content': '这是我新添加进来的' },
+        //     success: function (data) {
+        //         console.log(data);
+        //     }
+        // });
+        // 化简post请求
+        // $.post(url,data,callback,dataType(可写可不写))
+        $.post('http://localhost:3000/comments', { 'postId': 3, 'content': '简化方法$.post()添加进来的' }, function (data) {
+            console.log(data);
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -95,9 +95,9 @@
   ],
   "comments": [
     {
-      "id": 1,
+      "content": "这里被我put方法改变了奥",
       "postId": 1,
-      "content": "This is a comment"
+      "id": 1
     },
     {
       "id": 2,
@@ -113,6 +113,11 @@
       "id": 4,
       "postId": 2,
       "content": "This is a comment"
+    },
+    {
+      "postId": "3",
+      "content": "简化方法$.post()添加进来的",
+      "id": 6
     }
   ]
 }
