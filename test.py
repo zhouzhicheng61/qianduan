@@ -31,7 +31,11 @@ def getWordsInCount(year, level, field, path, fileName):
     wb.save("F:\课题\北京20年物流发展\数据\政策分析内容.xlsx")
 
 
-path = "F:\课题\北京20年物流发展\政策\国家（北京）物流产业政策\北京—2017"
+year = "2022"
+level = "北京"
+field = "物流"
+path = f"F:\课题\北京20年物流发展\政策\{year}\{level}\{field}"
+
 wb = openpyxl.load_workbook("F:\课题\北京20年物流发展\数据\政策分析内容.xlsx")
 sheet = wb['Sheet1']
 fileNames = []
@@ -40,4 +44,6 @@ for i in os.walk(path):
     fileNames = i[2]
 
 for j in range(len(fileNames)):
-    getWordsInCount("2017", "国家", "物流", path, fileNames[j])
+    getWordsInCount(year, level, field, path, fileNames[j])
+
+print("任务执行完成")
