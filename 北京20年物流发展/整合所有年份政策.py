@@ -26,9 +26,10 @@ for files in os.walk("F:\课题\北京20年物流发展\政策\年份整合\北�
     fileNames = files[2]
     tempContents = ""
     for fileName in fileNames:
-        with open(f"F:\课题\北京20年物流发展\政策\年份整合\北京\{fileName}", encoding='ANSI') as file:
+        with open(f"F:\课题\北京20年物流发展\政策\年份整合\北京\{fileName}",
+                  encoding='ANSI') as file:
             content = file.read()
             tempContents += content.rstrip()
-    outPutFileName = f"F:\课题\北京20年物流发展\政策\年份整合\北京\汇总.txt"
+    outPutFileName = "F:\课题\北京20年物流发展\政策\年份整合\北京\汇总.txt"
     with open(outPutFileName, 'w') as file:
         file.write(tempContents)
